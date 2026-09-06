@@ -3,7 +3,7 @@
 ## 从 GitHub 恢复
 
 ```powershell
-git clone https://github.com/<account>/arknights-reverse-toolchain.git
+git clone https://github.com/sicaizhuang/arknights-reverse-toolchain.git
 Set-Location arknights-reverse-toolchain
 powershell -ExecutionPolicy Bypass -File scripts/restore_public.ps1
 ```

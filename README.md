@@ -29,7 +29,7 @@ IL2CPP 结构、PC/Android 逻辑关联和有限的特效时间线导出组织�
 [`docs/USAGE_PUBLIC.md`](docs/USAGE_PUBLIC.md)。
 
 ```powershell
-git clone https://github.com/<account>/arknights-reverse-toolchain.git
+git clone https://github.com/sicaizhuang/arknights-reverse-toolchain.git
 Set-Location arknights-reverse-toolchain
 powershell -ExecutionPolicy Bypass -File scripts/restore_public.ps1
 powershell -ExecutionPolicy Bypass -File scripts/toolchain.ps1 health
