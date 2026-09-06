@@ -36,6 +36,8 @@ IL2CPP 结构、PC/Android 逻辑关联和有限的特效时间线导出组织�
 注入、进程内存读取、反作弊规避或“完整源码”承诺。输出只表示静态证据；
 方法体、运行时地址、真实游戏内调用顺序和视觉等价性仍需用户自行验证。
 
+使用前请阅读 [`DISCLAIMER.md`](DISCLAIMER.md)，仅处理你拥有或获授权检查的输入。
+
 ## 快速开始
 
 需要 Windows PowerShell 7、Python 3.11+、.NET 9 SDK（构建 AnimeStudio
@@ -108,4 +110,4 @@ powershell -ExecutionPolicy Bypass -File scripts/verify_toolchain.ps1
 ## 许可证
 
 本项目代码使用 MIT；第三方组件和用户提供的客户端资源遵循各自许可证。
-参见 [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md)。
+参见 [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md) 和 [`DISCLAIMER.md`](DISCLAIMER.md)。
