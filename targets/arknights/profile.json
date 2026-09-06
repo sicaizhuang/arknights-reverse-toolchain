@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "profile_id": "arknights",
+  "profile_state": "user_configured_template",
+  "analysis_enabled": true,
+  "target_identity": {
+    "package_name": "com.hypergryph.arknights",
+    "platform": "android",
+    "note": "Replace the input paths with files obtained from a client you are authorised to inspect."
+  },
+  "phase1_static": {
+    "python": ".venv/Scripts/python.exe",
+    "inputs": {
+      "base_apk": "inputs/android/base.apk",
+      "jadx_root": "inputs/android/jadx",
+      "jadx_command": "inputs/android/jadx.command.json",
+      "jadx_stdout": "inputs/android/jadx.stdout.txt",
+      "jadx_stderr": "inputs/android/jadx.stderr.txt",
+      "current_elf": "inputs/android/libil2cpp.so",
+      "decoded_arm64_root": "inputs/android/decoded/lib/arm64-v8a",
+      "apk_provenance": "inputs/android/apk_provenance.json",
+      "legacy_dump_cs": "inputs/legacy/dump.cs"
+    },
+    "scripts": {
+      "unity": "targets/arknights/deep_inventory.py",
+      "java": "targets/arknights/index_jadx.py",
+      "java_errors": "targets/arknights/correct_jadx_errors.py",
+      "native": "targets/arknights/index_native_elf.py",
+      "correlate": "targets/arknights/correlate_static_layers.py",
+      "smoke": "targets/arknights/smoke_static_module.py"
+    },
+    "outputs": {
+      "unity_index": "outputs/android/unity_inventory.sqlite",
+      "java_index": "outputs/android/java_index.sqlite",
+      "java_analysis": "outputs/android/java_analysis.json",
+      "il2cpp_provenance": "outputs/android/il2cpp_provenance.json",
+      "native_index": "outputs/android/native_index.sqlite"
+    }
+  },
+  "storage": {
+    "capture": "inputs/android/bundles",
+    "report_namespace": "outputs/reports",
+    "test_namespace": "outputs/tests"
+  },
+  "lz4ak_adapter": {
+    "enabled": true,
+    "python": ".venv/Scripts/python.exe",
+    "entrypoint": "targets/arknights/ark_unpacker_probe.py",
+    "allowed_roots": ["inputs/android/bundles"],
+    "mode": "read_only_object_and_typetree_probe"
+  },
+  "assets_adapter": {
+    "enabled": true,
+    "game": "Arknights",
+    "mode": "read_only",
+    "tool_path": "third_party/AnimeStudio-src/AnimeStudio.CLI/bin/Release/net9.0/AnimeStudio.CLI.exe",
+    "export": {
+      "default_types": ["Texture2D", "Sprite", "TextAsset", "AnimationClip", "AudioClip", "Mesh", "Material", "MonoBehaviour", "Animator"],
+      "source_convert_implementations": ["Texture2D", "Sprite", "TextAsset", "AnimationClip", "AudioClip", "Mesh", "Material", "MonoBehaviour", "Animator"]
+    }
+  },
+  "effects_adapter": {
+    "enabled": false,
+    "mode": "offline_only_requires_unity_and_shader_dependencies",
+    "runtime_claim": false
+  }
+}

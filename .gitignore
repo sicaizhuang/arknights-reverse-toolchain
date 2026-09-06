@@ -1,0 +1,48 @@
+# Local inputs and generated output
+inputs/
+outputs/
+captures/
+reports/
+evidence/
+exports/
+work/
+tests/runs/
+*.sqlite
+*.jsonl
+
+# Local runtimes and build products
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+bin/
+obj/
+Library/
+Logs/
+UserSettings/
+.vs/
+.idea/
+*.user
+*.suo
+*.pdb
+*.dll
+*.exe
+*.so
+*.dylib
+*.apk
+*.aab
+*.7z
+*.zip
+
+# Small synthetic fixtures are intentionally versioned for smoke tests.
+!fixtures/**/*.apk
+!fixtures/**/*.elf
+!fixtures/**/*.dat
+!fixtures/**/*.bundle
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+*.swp
+
+targets/arknights/effects/unity_project/

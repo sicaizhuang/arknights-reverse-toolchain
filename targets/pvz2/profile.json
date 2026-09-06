@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "profile_id": "pvz2",
+  "profile_state": "not_configured",
+  "analysis_enabled": false,
+  "target_identity": {
+    "package_name": null,
+    "version_name": null,
+    "version_code": null,
+    "primary_abi": null
+  },
+  "storage": {
+    "capture": null,
+    "report_namespace": null,
+    "test_namespace": null
+  },
+  "references": {
+    "source_target_analysis": null,
+    "capture_validation": null,
+    "toolchain_health": null,
+    "delivery_hash_manifest": null,
+    "delivery_key_hashes": null
+  },
+  "current_capability_status": {
+    "status": "not_applicable"
+  },
+  "capability_matrix": {},
+  "failures": [
+    "Profile is not configured; no target input exists."
+  ],
+  "unverified": [
+    "Package identity, capture identity, and all analysis states are unverified because no input was supplied."
+  ],
+  "limitations": [
+    "No package name, capture, report, capability matrix, hash set, failure state, or unverified target state has been supplied."
+  ],
+  "allowed_actions": [
+    "configuration_only"
+  ],
+  "prohibited_actions": [
+    "package-name guessing",
+    "device read",
+    "capture",
+    "analysis",
+    "report generation"
+  ]
+}

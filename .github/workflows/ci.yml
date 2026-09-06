@@ -1,0 +1,17 @@
+name: public-checks
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  python:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python scripts/public_audit.py .
+      - run: python -m compileall -q targets scripts
+      - run: python scripts/fixtures/generate_fixtures.py --root /tmp/fixtures

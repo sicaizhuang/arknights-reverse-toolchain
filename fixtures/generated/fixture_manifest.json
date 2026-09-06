@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "purpose": "non-target deterministic static-analysis fixtures",
+  "files": [
+    {
+      "path": "apk/minimal-static-fixture.apk",
+      "size": 766,
+      "sha256": "C1B41DB0CE5D93B766142D1EBC3987161D57ADA5949427BB7E9C10EF9C01E29A",
+      "scope": "format identification and bounded parser health only"
+    },
+    {
+      "path": "il2cpp/standard-metadata-header-v29.dat",
+      "size": 256,
+      "sha256": "E450AE4DD3C4FC39DB44DA55EC5E46001DCCEA6EBD86F8D1702FC3F1F625A4B2",
+      "scope": "format identification and bounded parser health only"
+    },
+    {
+      "path": "native/minimal-arm64-ret.elf",
+      "size": 4100,
+      "sha256": "8DA18B76220FF00CF1C59FB1BCE92363B061315445F01BFAEA5AABF1DA76ED6D",
+      "scope": "format identification and bounded parser health only"
+    },
+    {
+      "path": "unity/empty-unityfs-v6.bundle",
+      "size": 88,
+      "sha256": "944338DFC311539B773D31E888684810C5AF5A832DD599FE1EAD38580A0F543C",
+      "scope": "format identification and bounded parser health only"
+    }
+  ]
+}

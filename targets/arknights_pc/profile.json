@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "profile_id": "arknights_pc",
+  "profile_state": "user_configured_template",
+  "target_platform": "windows-x64",
+  "game_identity": {
+    "executable_name": "Arknights.exe",
+    "note": "Set paths below to an authorised PC capture; the repository never ships game files."
+  },
+  "storage": {
+    "capture_root": "inputs/pc",
+    "report_namespace": "outputs/pc",
+    "test_namespace": "outputs/pc-tests"
+  },
+  "inputs": {
+    "capture_manifest": "inputs/pc/capture_manifest.json",
+    "gameassembly": "inputs/pc/GameAssembly.dll",
+    "metadata": "inputs/pc/Arknights_Data/il2cpp_data/Metadata/global-metadata.dat",
+    "executable": "inputs/pc/Arknights.exe",
+    "unity_player": "inputs/pc/UnityPlayer.dll",
+    "global_game_managers": "inputs/pc/Arknights_Data/globalgamemanagers"
+  },
+  "static_evidence": {
+    "feasibility_report": "outputs/pc/decompile_feasibility_report.json",
+    "dump_cs": "outputs/pc/dump.cs",
+    "script_json": "outputs/pc/script.json"
+  },
+  "asset_adapter": {
+    "tool_path": "tools/AnimeStudio.CLI.exe",
+    "mode": "bounded_pc_bundle_probe"
+  },
+  "code_reference": {
+    "entrypoint": "targets/arknights_pc/code_reference_index.py",
+    "address_policy": "current-client addresses only; never import historical addresses",
+    "runtime_verified": false
+  },
+  "cross_platform": {
+    "join_policy": "logical names and IDs only",
+    "address_reuse": false,
+    "semantic_edges_proven": false
+  },
+  "prohibited": ["adb", "game_execution", "process_memory", "debugger", "injection"]
+}
