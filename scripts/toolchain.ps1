@@ -20,6 +20,7 @@ param(
 Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Stop'
 $root = (Resolve-Path (Join-Path $PSScriptRoot '..')).Path
+Set-Location $root
 $python = if ($env:ARKNIGHTS_TOOLCHAIN_PYTHON) { $env:ARKNIGHTS_TOOLCHAIN_PYTHON }
           elseif (Test-Path (Join-Path $root '.venv\Scripts\python.exe')) { Join-Path $root '.venv\Scripts\python.exe' }
           else { 'python' }
