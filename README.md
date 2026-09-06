@@ -37,7 +37,6 @@ IL2CPP 结构、PC/Android 逻辑关联和有限的特效时间线导出组织�
 方法体、运行时地址、真实游戏内调用顺序和视觉等价性仍需用户自行验证。
 
 使用前请阅读 [`DISCLAIMER.md`](DISCLAIMER.md)，仅处理你拥有或获授权检查的输入。
-源码变更记录见 [`CHANGELOG.md`](CHANGELOG.md)。
 
 ## 快速开始
 
