@@ -100,7 +100,6 @@ def main() -> int:
         "evidence_boundary": {
             "static_resource_closure_only": True,
             "runtime_invocation_proven": False,
-            "legacy_group_references_authoritative": False,
         },
     }
     args.output.parent.mkdir(parents=True, exist_ok=True)

@@ -32,7 +32,7 @@ IL2CPP 结构、PC/Android 逻辑关联和有限的特效时间线导出组织�
 
 ## 明确边界
 
-本仓库不包含任何游戏客户端、私有聊天/群文件、真实角色资源、运行时
+本仓库不包含任何游戏客户端、私有资料、真实角色资源、运行时
 注入、进程内存读取、反作弊规避或“完整源码”承诺。输出只表示静态证据；
 方法体、运行时地址、真实游戏内调用顺序和视觉等价性仍需用户自行验证。
 
@@ -102,7 +102,7 @@ python scripts/fixtures/generate_fixtures.py --output fixtures/generated
 powershell -ExecutionPolicy Bypass -File scripts/verify_toolchain.ps1
 ```
 
-提交前请运行 `scripts/public_audit.py`；它会阻止私有路径、聊天记录标记、
+提交前请运行 `scripts/public_audit.py`；它会阻止私有路径、敏感资料标记、
 凭据模式、过大的构建产物和不应进入仓库的二进制文件。
 
 ## 许可证

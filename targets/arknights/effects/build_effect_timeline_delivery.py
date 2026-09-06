@@ -148,7 +148,7 @@ def main() -> int:
 
 状态：`{report['status']}`。
 
-- 群文件流程已转换为可复用的 `effects-timeline-batch` 入口，不是一次性陈专用脚本。
+- 跨来源流程已转换为可复用的 `effects-timeline-batch` 入口，不是一次性陈专用脚本。
 - 当前真实验收范围：陈默认皮肤技能 Prefab `18/18` 通过，CAB `5 resolved / 0 unresolved`。
 - 共保留 `{source_frames}` 张 512x512 RGBA 原始证据帧，派生预览保留 `{retained_frames}` 帧。
 - 短爆发样本 `{repeat_asset}` 独立/批量两次共 `{len(repeat_hashes)}` 帧，SHA-256 差异 `0`。

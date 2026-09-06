@@ -12,6 +12,6 @@ projects. Their licenses remain separate from this repository's MIT license.
   keeps its own license.
 
 No game client, proprietary asset dump, generated decompilation, credential,
-chat export, or private evidence is distributed here. External tools such as
+local export, or private evidence is distributed here. External tools such as
 Il2CppDumper, Ghidra, Unity, and a .NET runtime are user-installed and are not
 redistributed by this repository.

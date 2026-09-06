@@ -42,9 +42,6 @@ DIRECT_TYPES = [
     "Font",
 ]
 
-GROUP_REFERENCE_FILES: list[dict[str, Any]] = []
-
-
 def annotation_index() -> dict[str, str]:
     return {}
 
@@ -87,7 +84,7 @@ def classify_exported_asset(relative_path: str, unity_type: str) -> str:
 
 
 def lookup_annotation(annotations: dict[str, str], key: str) -> str | None:
-    """Use exact or longest parent annotation from the group JSON."""
+    """Use exact or longest parent annotation from the annotation JSON."""
     normalized = key.replace("\\", "/")
     if normalized in annotations:
         return annotations[normalized]
@@ -97,22 +94,6 @@ def lookup_annotation(annotations: dict[str, str], key: str) -> str | None:
         if normalized.startswith(prefix.rstrip("/") + "/")
     ]
     return max(parents, key=lambda item: len(item[0]))[1] if parents else None
-
-
-def group_references() -> list[dict[str, Any]]:
-    rows = []
-    for item in GROUP_REFERENCE_FILES:
-        path = item["path"]
-        row = {
-            "path": str(path),
-            "role": item["role"],
-            "boundary": item["boundary"],
-            "exists": path.is_file(),
-        }
-        if path.is_file():
-            row.update({"size": path.stat().st_size, "sha256": sha256(path)})
-        rows.append(row)
-    return rows
 
 
 def build_catalog(output: Path, records: list[dict[str, Any]]) -> dict[str, Any]:
@@ -697,23 +678,6 @@ def main() -> int:
     shared = shared_candidates(inventory_root, token)
     evidence_root = output / "evidence"
     evidence_root.mkdir(parents=True, exist_ok=True)
-    (evidence_root / "group_references.json").write_text(
-        json.dumps(
-            {
-                "schema_version": 1,
-                "operator_id": operator_id,
-                "references": group_references(),
-                "rules": [
-                    "VFS maps provide legacy paths and language distribution only.",
-                    "Legacy archives and metadata provide old type/call structure only.",
-                    "Old RVA values are never imported into the current client.",
-                ],
-            },
-            ensure_ascii=False,
-            indent=2,
-        ),
-        encoding="utf-8-sig",
-    )
     (evidence_root / "shared_projectile_candidates.json").write_text(
         json.dumps(shared.get("projectile_library", []), ensure_ascii=False, indent=2),
         encoding="utf-8-sig",
@@ -809,7 +773,6 @@ def main() -> int:
         "shared_candidates": shared,
         "exact": exact,
         "evidence": {
-            "group_references": str(evidence_root / "group_references.json"),
             "shared_projectiles": str(evidence_root / "shared_projectile_candidates.json"),
             "shared_effects": str(evidence_root / "shared_effect_candidates.json"),
             "operator_named_objects": str(evidence_root / "operator_named_objects.json"),
@@ -836,7 +799,7 @@ def main() -> int:
                 "",
                 "All direct operator-named Bundles are retained below `resources/` and exposed in one type-oriented `catalog/`.",
                 "Use `catalog_index.json` as the single machine-readable entry point; every row includes source Bundle, source SHA-256, Unity type, class and evidence.",
-                "Shared projectile/effect libraries and group-file references are under `evidence/`; they are not silently promoted to operator-owned resources.",
+                "Shared projectile/effect libraries are under `evidence/`; they are not silently promoted to operator-owned resources.",
                 "Current config and serialized-reference closures are under `exact/`; each promoted root records its field, PathID, Bundle and recursive CAB dependencies.",
                 "",
                 "Direct Bundle categories: `battle_spine`, `skin`, `voice`, `portrait`, `story`, `combat_config`, `operator_direct`.",
@@ -851,7 +814,6 @@ def main() -> int:
         Path(__file__).resolve(),
         output / "catalog_index.json",
         output / "catalog" / "README.md",
-        evidence_root / "group_references.json",
         evidence_root / "shared_projectile_candidates.json",
         evidence_root / "shared_effect_candidates.json",
         evidence_root / "operator_named_objects.json",

@@ -3,8 +3,8 @@
     Small, portable router for the public read-only adapters.
 
 .DESCRIPTION
-    Private chat integrations and machine-specific launchers are not
-    part of this repository.  Commands forward their remaining arguments to
+    Private integrations and machine-specific launchers are not part of this
+    repository.  Commands forward their remaining arguments to
     the corresponding adapter under this repository.
 #>
 param(
@@ -40,8 +40,8 @@ Public read-only routes:
   pc-monoscript-closure, pc-skill-effect-join, pc-code-index/query/map/trace/
   verify/surface, query.
 
-Private chat-record integration, private evidence, runtime injection and bundled
-game/client files are intentionally excluded.  Use docs/USAGE_PUBLIC.md.
+Private integrations, private evidence, runtime injection and bundled game/client
+files are intentionally excluded.  Use docs/USAGE_PUBLIC.md.
 '@
     exit 0
 }

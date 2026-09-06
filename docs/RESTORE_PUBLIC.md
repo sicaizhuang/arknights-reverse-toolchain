@@ -9,7 +9,7 @@ powershell -ExecutionPolicy Bypass -File scripts/restore_public.ps1
 ```
 
 `restore_public.ps1` 只创建本地 Python 虚拟环境并安装锁定依赖，不下载
-游戏、聊天记录或私有证据。外部 .NET、Unity、IL2CPP 工具需按当地许可自行
+游戏或私有证据。外部 .NET、Unity、IL2CPP 工具需按当地许可自行
 安装。配置文件中的 `inputs/` 路径是模板，必须由用户改成自己的授权输入。
 
 ## 日常更新

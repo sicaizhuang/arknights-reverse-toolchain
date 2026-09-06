@@ -12,7 +12,7 @@ every join remains a candidate until stronger evidence exists.
 The adapter is offline report-only by default. It does not start ADB, the game,
 anti-cheat, a debugger, or runtime instrumentation.
 
-The `code_reference_index.py` route can consume the isolated group-generated
+The `code_reference_index.py` route can consume the isolated generated
 C# tree and the current PC `dump.cs`. Use `pc-code-index` to build the SQLite
 index, then `pc-code-query`, `pc-code-map`, `pc-code-trace`, or `pc-code-verify` from the unified
 CLI. `pc-code-surface` checks exact operator-skill class presence before any

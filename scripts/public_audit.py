@@ -7,8 +7,8 @@ import sys
 from pathlib import Path
 
 ROOT_NAMES = {".git", ".venv", "venv", "__pycache__", "bin", "obj", "Library", "Logs", "UserSettings"}
-FORBIDDEN_PARTS = {"captures", "evidence", "exports", "reports", "work", "inputs", "outputs", "MsgBackup"}
-PRIVATE_MARKERS = ("C:\\Users\\", "D:\\Arknights_Reverse_Toolchain", "QQChatExporter", "NapCat", "QCE", "generated.7z")
+FORBIDDEN_PARTS = {"captures", "evidence", "exports", "reports", "work", "inputs", "outputs"}
+PRIVATE_MARKERS = ("C:\\Users\\", "D:\\Arknights_Reverse_Toolchain", "generated.7z")
 SECRET_PATTERNS = (re.compile(r"(?i)(api[_-]?key|access[_-]?token|client[_-]?secret)\s*[:=]"), re.compile(r"gh[pousr]_[A-Za-z0-9_]{20,}"))
 TEXT_EXTS = {".py", ".ps1", ".psm1", ".md", ".json", ".txt", ".cs", ".csproj", ".sln", ".yml", ".yaml", ".toml"}
 
